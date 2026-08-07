@@ -1,0 +1,18 @@
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int n = nums.length;
+        
+        // Step 1: Encode the new value into nums[i]
+        // Using modulo (nums[nums[i]] % n) gets the original value before it was modified
+        for (int i = 0; i < n; i++) {
+            nums[i] += (nums[nums[i]] % n) * n;
+        }
+        
+        // Step 2: Extract the new value using integer division
+        for (int i = 0; i < n; i++) {
+            nums[i] /= n;
+        }
+        
+        return nums;
+    }
+}
