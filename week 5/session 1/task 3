@@ -1,0 +1,40 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+        // Maximum Subarray
+        int current = arr[0];
+        int maxSubarray = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+
+            current = Math.max(arr[i], current + arr[i]);
+
+            maxSubarray = Math.max(maxSubarray, current);
+        }
+
+        // Maximum Subsequence
+        int maxSubsequence = 0;
+        int largest = arr[0];
+
+        for (int num : arr) {
+
+            if (num > 0) {
+                maxSubsequence += num;
+            }
+
+            largest = Math.max(largest, num);
+        }
+
+        if (maxSubsequence == 0) {
+            maxSubsequence = largest;
+        }
+
+        System.out.println("Maximum Subarray: " + maxSubarray);
+        System.out.println("Maximum Subsequence: " + maxSubsequence);
+    }
+}
+out put 
+Maximum Subarray: 6
+Maximum Subsequence: 11
