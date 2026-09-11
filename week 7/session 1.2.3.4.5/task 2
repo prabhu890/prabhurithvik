@@ -1,0 +1,59 @@
+import java.util.*;
+
+class Student {
+}
+
+class Rockstar {
+}
+
+class Hacker {
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int student = 0;
+        int rockstar = 0;
+        int hacker = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            String type = sc.next();
+
+            if (type.equals("Student")) {
+                Student s = new Student();
+
+                if (s instanceof Student) {
+                    student++;
+                }
+            }
+
+            else if (type.equals("Rockstar")) {
+                Rockstar r = new Rockstar();
+
+                if (r instanceof Rockstar) {
+                    rockstar++;
+                }
+            }
+
+            else if (type.equals("Hacker")) {
+                Hacker h = new Hacker();
+
+                if (h instanceof Hacker) {
+                    hacker++;
+                }
+            }
+        }
+
+        System.out.println(student + " " + rockstar + " " + hacker);
+    }
+}
+out put
+3 1 1 
+
+
