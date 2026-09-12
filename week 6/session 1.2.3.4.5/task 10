@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+        String s = sc.next();
+        String doubled = s + s;
+        
+        for (int k = 0; k < n; k++) {
+            String sub = doubled.substring(k, k + n);
+            System.out.println(maxPalindromeLength(sub));
+        }
+    }
+
+    private static int maxPalindromeLength(String s) {
+        int n = s.length(), max = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (isPal(s, i, j)) max = Math.max(max, j - i + 1);
+            }
+        }
+        return max;
+    }
+
+    private static boolean isPal(String s, int l, int r) {
+        while (l < r) {
+            if (s.charAt(l++) != s.charAt(r--)) return false;
+        }
+        return true;
+    }
+}
